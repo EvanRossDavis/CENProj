@@ -1,0 +1,19 @@
+
+import csv  
+    
+# opening the CSV file  
+with open('Book1.csv', mode ='r')as file:  
+      
+  # reading the CSV file  
+  csvFile = csv.reader(file)
+  
+  search = input('Enter a search term: ')
+  
+  # Change search to all upper/lowercase
+  # displaying the contents of the CSV file  
+  for lines in csvFile:
+        # Convert line[n] to upper/lowercase
+        if lines[2] == search:
+            print('\nCompany name: ' + lines[0])
+            print('Company location: ' + lines[1])
+            print('Company specialty: ' + lines[2])
