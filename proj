@@ -1,19 +1,24 @@
-
 import csv  
-    
-# opening the CSV file  
-with open('Book1.csv', mode ='r')as file:      
-  # reading the CSV file  
-  csvFile = csv.reader(file)
-  
-  #while true
-      search = input('Enter a search term: ')
 
-      # Change search to all upper/lowercase
-      # displaying the contents of the CSV file  
-      for lines in csvFile:
-            # Convert line[n] to upper/lowercase
-            if lines[2] == search:
-                print('\nCompany name: ' + lines[0])
-                print('Company location: ' + lines[1])
-                print('Company specialty: ' + lines[2])
+
+def match(col0, col1, col2, search):
+  return col0 == search or col1 == search or col2 == search
+
+while 1:
+  # opening the CSV file  
+  with open('Book1.csv', mode ='r') as file:       
+    
+    # reading the CSV file  
+    csvFile = csv.reader(file)
+    
+    #Prompting search term
+    search = input('Enter a search term: ')
+    
+    #Iterate through all rows
+    for lines in csvFile:
+
+      # Convert line[n] to upper/lowercase and check matching words
+      if match(lines[0], lines[1], lines[2], search):
+          print('\nCompany name: ' + lines[0])
+          print('Company location: ' + lines[1])
+          print('Company specialty: ' + lines[2])
