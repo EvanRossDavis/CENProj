@@ -1,8 +1,7 @@
 import csv  
 
-
 def match(col0, col1, col2, search):
-  return col0 == search or col1 == search or col2 == search
+  return col0.lower() == search.lower() or col1 == search or col2 == search
 
 while 1:
   # opening the CSV file  
@@ -16,7 +15,6 @@ while 1:
     
     #Iterate through all rows
     for lines in csvFile:
-
       # Convert line[n] to upper/lowercase and check matching words
       if match(lines[0], lines[1], lines[2], search):
           print('\nCompany name: ' + lines[0])
